@@ -1,62 +1,6 @@
-/*
 
-
-  OK, ya ready for some fun? HTML + CSS styling + javascript all in and undebuggable environment
-
-  one trick I've learned to how to debug HTML and CSS code.
-
-  get all your HTML code (from html to /html) and past it into this test site
-  muck with the HTML and CSS code until it's what you want
-  https://www.w3schools.com/html/tryit.asp?filename=tryhtml_intro
-
-  No clue how to debug javascrip other that write, compile, upload, refresh, guess, repeat
-
-  I'm using class designators to set styles and id's for data updating
-  for example:
-  the CSS class .tabledata defines with the cell will look like
-  <td><div class="tabledata" id = "switch"></div></td>
-
-  the XML code will update the data where id = "switch"
-  java script then uses getElementById
-  document.getElementById("switch").innerHTML="Switch is OFF";
-
-
-  .. now you can have the class define the look AND the class update the content, but you will then need
-  a class for every data field that must be updated, here's what that will look like
-  <td><div class="switch"></div></td>
-
-  the XML code will update the data where class = "switch"
-  java script then uses getElementsByClassName
-  document.getElementsByClassName("switch")[0].style.color=text_color;
-
-
-  the main general sections of a web page are the following and used here
-
-  <html>
-    <style>
-    // dump CSS style stuff in here
-    </style>
-    <body>
-      <header>
-      // put header code for cute banners here
-      </header>
-      <main>
-      // the buld of your web page contents
-      </main>
-      <footer>
-      // put cute footer (c) 2021 xyz inc type thing
-      </footer>
-    </body>
-    <script>
-    // you java code between these tags
-    </script>
-  </html>
-
-
-*/
-
-// note R"KEYWORD( html page code )KEYWORD"; 
-// again I hate strings, so char is it and this method let's us write naturally
+// note HTML use  R"KEYWORD( html page code )KEYWORD"; 
+// Thus it will be difficult, so char is it and this method let's us write naturally
  
  const char PAGE_MAIN[] PROGMEM = R"=====( 
 
@@ -285,16 +229,7 @@
         <td><div class="tabledata" id = "b7"></div></td>
         <td><div class="tabledata" id = "v7"></div></td>
       </tr>
-      <!-- <tr>
-        <td><div class="bodytext">Current Sensor</div></td> 
-        <td><div class="tabledata" id = "b8"></div></td>
-        <td><div class="tabledata" id = "v8"></div></td>
-      </tr> -->
-        <!-- <tr>
-        <td><div class="bodytext">Digital switch</div></td>
-        <td><div class="tabledata" id = "switch"></div></td>
-      </tr> -->
-      </table>
+    </table>
 
       <h2 class="category" style="text-align: left; margin-top: 0px; margin-bottom: 0px;">Current Monitoring</h2>
       <table style="width:100%; margin-bottom: 0px; margin-top: 0px; border-radius: 10px !important; ">
@@ -333,23 +268,7 @@
 
     </div>
     <br>
-    <!-- <div class="category">Sensor Controls</div>
-    <br>
-    <div class="bodytext">LED </div>
-    <button type="button" class = "btn" id = "btn0" onclick="ButtonPress0()">Toggle</button>
-    </div>
-    <br>
-    <div class="bodytext">Switch</div>
-    <button type="button" class = "btn" id = "btn1" onclick="ButtonPress1()">Toggle</button>
-    </div>
-    <br>
-    <br>
-    <div class="bodytext">Fan Speed Control (RPM: <span id="fanrpm"></span>)</div>
-    <br>
-    <input type="range" class="fanrpmslider" min="0" max="255" value = "0" width = "0%" oninput="UpdateSlider(this.value)"/>
-    <br>
-    <br> -->
-  </main>
+    </main>
 
   <footer div class="foot" id = "temp" >Project by Savvy Innovators</div></footer>
   

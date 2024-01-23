@@ -1,20 +1,12 @@
 /*
 
 
-  this example will show
-  1. how to use and ESP 32 for reading pins
-  2. building a web page for a client (web browser, smartphone, smartTV) to connect to
-  3. sending data from the ESP to the client to update JUST changed data
-  4. sending data from the web page (like a slider or button press) to the ESP to tell the ESP to do something
+  this project will show
+  1. how to use an ESP8266 32 for reading pins
+  2. building a web page for a client to connect to Leds
+  3. sending data from the ESP8266 to the client to update JUST change data
 
-  If you are not familiar with HTML, CSS page styling, and javascript, be patient, these code platforms are
-  not intuitive and syntax is very inconsitent between platforms
-
-  I know of 4 ways to update a web page
-  1. send the whole page--very slow updates, causes ugly page redraws and is what you see in most examples
-  2. send XML data to the web page that will update just the changed data--fast updates but older method
-  3. JSON strings which are similar to XML but newer method
-  4. web sockets very very fast updates, but not sure all the library support is available for ESP's
+  
 
   I use XML here...
 
@@ -26,46 +18,20 @@
   flash mode qio
   flash size 4mb
   partition scheme default
-
-
   NOTE if your ESP fails to program press the BOOT button during programm when the IDE is "looking for the ESP"
-
-  The MIT License (MIT)
-
-  code writen by Kris Kasprzak
-  
-  Permission is hereby granted, free of charge, to any person obtaining a copy of
-  this software and associated documentation files (the "Software"), to deal in
-  the Software without restriction, including without limitation the rights to
-  use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
-  the Software, and to permit persons to whom the Software is furnished to do so,
-  subject to the following conditions:
-  The above copyright notice and this permission notice shall be included in all
-  copies or substantial portions of the Software.
-  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
-  FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
-  COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
-  IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
-  CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-  On a personal note, if you develop an application or product using this code 
-  and make millions of dollars, I'm happy for you!
 
 */
 
-// #include <WiFi.h>       // standard library
-// #include <WebServer.h>  // standard library
 #include "SuperMon.h"   // .h file that stores your html page code
 
 #include <ESP8266WiFi.h>
-#include <ESP8266WebServer.h>
+#include <ESP8266WebServer.h> //standarad library
 
 // here you post web pages to your homes intranet which will make page debugging easier
 // as you just need to refresh the browser as opposed to reconnection to the web server
 #define USE_INTRANET
 
-// replace this with your homes intranet connect parameters
+// this is internet connect parameters
 #define LOCAL_SSID ":"
 #define LOCAL_PASS "9424025594"
 
@@ -79,16 +45,6 @@
 #define PIN_LED 2     //On board LED
 // #define PIN_A0 34     // some analog input sensor
 #define PIN_A1 35     // some analog input sensor
-/*
------> OLD CODE - END
-// variables to store measure data and sensor states
-int BitsA0 = 0, BitsA1 = 0;
-float VoltsA0 = 0, VoltsA1 = 0;
-int FanSpeed = 0;
-bool LED0 = false, SomeOutput = false;
-int FanRPM = 0;
-------> OLD CODE - START
-*/
 uint32_t SensorUpdate = 0;
 
 // the XML array size needs to be bigger that your maximum expected size. 2048 is way too big for this example
